@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="decodificador.css">
+    
     <title>Decifre-me</title>
 </head>
 <body>
+    <header>
+        <h1>Digite sua mensagem!</h1>
+    </header>
     <!-- <img src="frente.png" class="carta"/> -->
     <div class="codificador">
         <img src="verso.png" class="carta"/>
         <textarea id="msgs" name="msgs" rows="10" cols="30"></textarea>
         <button onclick="codificar()">Codificar</button>
         <button onclick="decodificar()">Decodificar</button>
+        <button onclick="copiarTexto()">Copiar</button>
     </div>
-    
+    <footer>
+        
+       <p class="copyright">&copy;Acredite na sua estrela</p>
+       <p class="assinatura">Clícia Gonzaga</p>
+       </footer>
 </body>
 </html>
 <script>
@@ -25,7 +35,13 @@
     function codificar(){
         var valor= msgs.value
         var valor2= ""
-        carta.src = "frente.png"
+        if(valor==""){
+            carta.src='naoencontrada.png'
+            return;
+        }else{
+            carta.src = "frente.png"
+        }
+    
 
         valor2 = valor.replace(/e/g,'enter');
         valor2 = valor2.replace(/i/g,'imes');
@@ -38,7 +54,13 @@
     function decodificar(){
         var valor= msgs.value
         var valor2= ""
-        carta.src = "verso.png"
+
+        if(valor==""){
+            carta.src='naoencontrada.png'
+            return;
+        }else{
+            carta.src = "verso.png"
+        }
 
         valor2 = valor.replace(/enter/g,'e');
         valor2 = valor2.replace(/imes/g,'i');
@@ -47,9 +69,17 @@
         valor2 = valor2.replace(/ufat/g,'u');
         msgs.value = valor2
     }
+    function copiarTexto() {
+        // let textoCopiado = document.getElementById("texto");
+        msgs.select();
+        msgs.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("O texto é: " + msgs.value);
+    }
 
 
 </script>
+
 
 <!-- A letra "e" é convertida para "enter" -->
 <!-- A letra "i" é convertida para "imes" -->

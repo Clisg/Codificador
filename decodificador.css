@@ -1,10 +1,29 @@
+body{
+    background-color: #edcae9;
+}
+
+header{
+    background-color: plum;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 35px;
+    margin: 0;
+    padding: 3%;
+}
+
 .codificador{
     display: inline-block;
     position: relative;
-    vertical-align: center;
-    background-image: "verso.png";
     height: auto;
     width: fit-content;
+
+    --largura_carta: 287px;
+    --altura_carta: 538px;
+
+    --margem_esquerda: calc(50% - (var(--largura_carta)/2));
+
+    margin: 0 0 0 var(--margem_esquerda);
+
 
 }
 .codificador textarea{
@@ -12,23 +31,41 @@
     top: 30%;
     left: 8%;
     background-color: #00000020;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 1px 1px black
+}
+.codificador button{
+
+    width: 40%;
+    background: #e94490;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    position: absolute;
+    top: 60%;
+    left: 52%;
+
 }
 .codificador button:first-of-type {
-    position: absolute;
     top: 60%;
     left: 8%;
 }
-.codificador button {
-    position: absolute;
-    top: 60%;
-    left: 61%;
+
+.codificador button:last-of-type{
+    top: 70%;
+    left: 30%;
 }
 .carta{
-    width: 287px;
-    height: 538px;
+    width: var(--largura_carta);
+    height: var(--altura_carta);
     
 }
-#msgs{
-
+footer{
+    background-color: plum;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 0;
+    padding: 3%;
 }
-
