@@ -24,7 +24,6 @@ header{
 
     margin: 0 0 0 var(--margem_esquerda);
 
-
 }
 .codificador textarea{
     position: absolute;
@@ -59,7 +58,15 @@ header{
 .carta{
     width: var(--largura_carta);
     height: var(--altura_carta);
-    
+}
+
+.carta.roda-carta{
+    transition: 1s all;
+    transform: rotate3d(0, 1, 0, 360deg);
+}
+.carta.inverte-carta{
+    transition: 1s all;
+    transform: rotate3d(0, 1, 0, -360deg);
 }
 footer{
     background-color: plum;

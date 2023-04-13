@@ -31,18 +31,31 @@
 <script>
     var msgs=document.querySelector("#msgs");
     var carta = document.querySelector(".carta");
+
+    function viraCarta(){
+        if(carta.classList.contains("inverte-carta")){
+            carta.classList.remove("inverte-carta")
+            carta.classList.add("roda-carta")
+        }else if(carta.classList.contains("roda-carta")){
+            carta.classList.remove("roda-carta")
+
+            carta.classList.add("inverte-carta")
+        }else{
+            carta.classList.add("roda-carta")
+        }
+    }
    
     function codificar(){
         var valor= msgs.value
         var valor2= ""
+        viraCarta();
         if(valor==""){
             carta.src='naoencontrada.png'
             return;
         }else{
             carta.src = "frente.png"
         }
-    
-
+        
         valor2 = valor.replace(/e/g,'enter');
         valor2 = valor2.replace(/i/g,'imes');
         valor2 = valor2.replace(/a/g,'ai');
@@ -53,7 +66,8 @@
 
     function decodificar(){
         var valor= msgs.value
-        var valor2= ""
+        var valor2= ""        
+        viraCarta();
 
         if(valor==""){
             carta.src='naoencontrada.png'
@@ -61,7 +75,7 @@
         }else{
             carta.src = "verso.png"
         }
-
+        
         valor2 = valor.replace(/enter/g,'e');
         valor2 = valor2.replace(/imes/g,'i');
         valor2 = valor2.replace(/ai/g,'a');
@@ -80,9 +94,3 @@
 
 </script>
 
-
-<!-- A letra "e" é convertida para "enter" -->
-<!-- A letra "i" é convertida para "imes" -->
-<!-- A letra "a" é convertida para "ai" -->
-<!-- A letra "o" é convertida para "ober" -->
-<!-- A letra "u" é convertida para "ufat" -->
