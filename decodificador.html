@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decifre-me</title>
+</head>
+<body>
+    <img src="frente.png" class="carta"/>
+    <img src="verso.png" class="carta"/>
+    <textarea id="msgs" name="msgs" rows="10" cols="30"></textarea>
+    <button onclick="codificar()">Codificar</button>
+    <button onclick="decodificar()">Decodificar</button>
+</body>
+</html>
+<script>
+    var msgs=document.querySelector("#msgs");
+   
+    function codificar(){
+        var valor= msgs.value
+        var valor2= ""
+
+        valor2 = valor.replace(/e/g,'enter');
+        valor2 = valor2.replace(/i/g,'imes');
+        valor2 = valor2.replace(/a/g,'ai');
+        valor2 = valor2.replace(/o/g,'ober');
+        valor2 = valor2.replace(/u/g,'ufat');
+        msgs.value = valor2
+    }
+
+    function decodificar(){
+        var valor= msgs.value
+        var valor2= ""
+
+        valor2 = valor.replace(/enter/g,'e');
+        valor2 = valor2.replace(/imes/g,'i');
+        valor2 = valor2.replace(/ai/g,'a');
+        valor2 = valor2.replace(/ober/g,'o');
+        valor2 = valor2.replace(/ufat/g,'u');
+        msgs.value = valor2
+    }
+
+
+</script>
+
+<!-- A letra "e" é convertida para "enter" -->
+<!-- A letra "i" é convertida para "imes" -->
+<!-- A letra "a" é convertida para "ai" -->
+<!-- A letra "o" é convertida para "ober" -->
+<!-- A letra "u" é convertida para "ufat" -->
